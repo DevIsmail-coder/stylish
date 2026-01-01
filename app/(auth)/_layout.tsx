@@ -1,36 +1,28 @@
-import { Stack } from 'expo-router';
-
-
+import { Stack } from "expo-router";
 
 const AuthScreen = () => {
   return (
     <Stack>
       <Stack.Screen
-        name='index'
+        name="index"
         options={{
-          headerShown: false
+          headerShown: false,
         }}
       />
       <Stack.Screen
-        name='login'
+        name="signup"
         options={{
-          headerShown: false
+          headerShown: false,
         }}
       />
       <Stack.Screen
-        name='signup'
+        name="forget-password"
         options={{
-          headerShown: false
-        }}
-      />
-      <Stack.Screen
-        name='forget-password'
-        options={{
-          headerShown: false
+          headerShown: false,
         }}
       />
     </Stack>
-  )
-}
+  );
+};
 
-export default AuthScreen
+export default AuthScreen;
