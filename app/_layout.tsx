@@ -19,8 +19,10 @@ export default function RootLayout() {
       return;
     }
   }, []);
+  const bg = colorScheme === "dark" ? "#000000" : "#FFFFFF";
+
   return (
-    <View className="dark flex-1">
+    <View className="dark flex-1" style={{ backgroundColor: bg }}>
       <ThemeProvider value={DefaultTheme}>
         <Stack>
           <Stack.Screen name="index" options={{ headerShown: false }} />
