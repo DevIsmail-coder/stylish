@@ -175,7 +175,7 @@ const Input = ({
               onBlur(event);
             }
           }}
-          //   value={resolvedValue}
+          value={resolvedValue}
           onSubmitEditing={handleSubmitEditing}
           secureTextEntry={password}
           multiline={multiline}

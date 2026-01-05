@@ -1,6 +1,7 @@
 import { LockSvg, UserSvg } from "@/assets/svgs/onboarding";
 import Input from "@/components/Input";
-import React from "react";
+import { useRouter } from "expo-router";
+import React, { useState } from "react";
 import {
   Image,
   Keyboard,
@@ -15,13 +16,19 @@ import { moderateScale } from "react-native-size-matters";
 
 const Login = () => {
   const colorScheme = useColorScheme();
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <TouchableWithoutFeedback
       onPress={() => Keyboard.dismiss()}
       accessible={false}
     >
       <View className="flex-1 bg-white dark:bg-black">
-        <SafeAreaView className="flex-1 pt-14 items-center">
+        <SafeAreaView
+          className="flex-1 items-center"
+          style={{ paddingTop: moderateScale(40) }}
+        >
           <View className="mb-6">
             <Text className="text-5xl/[43px] font-bold text-center dark:text-white">
               Welcome
@@ -34,6 +41,8 @@ const Login = () => {
             <Input
               size="lg"
               placeholder="Username or Email"
+              value={email}
+              onChangeText={setEmail}
               placeholderTextColor={
                 colorScheme === "dark" ? "#F3F3F3" : "#676767"
               }
@@ -50,6 +59,8 @@ const Login = () => {
             <Input
               size="lg"
               placeholder="Password"
+              value={password}
+              onChangeText={setPassword}
               placeholderTextColor={
                 colorScheme === "dark" ? "#F3F3F3" : "#676767"
               }
@@ -58,9 +69,9 @@ const Login = () => {
                   fill={colorScheme === "dark" ? "#F3F3F3" : "#626262"}
                 />
               }
-              rightIcon={<View></View>}
               secureTextEntry={true}
               isPassword
+              rightIcon={<View></View>}
               style={{
                 backgroundColor: colorScheme === "dark" ? "#333333" : "#F3F3F3",
               }}
@@ -68,6 +79,7 @@ const Login = () => {
             <TouchableOpacity
               activeOpacity={0.5}
               className="items-end w-full -m-2"
+              onPress={() => router.push("/(auth)/forget-password")}
             >
               <Text className="text-[#4392F9] font-normal text-md">
                 Forgot Password?
